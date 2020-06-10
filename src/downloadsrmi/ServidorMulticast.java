@@ -40,8 +40,6 @@ public class ServidorMulticast extends Thread{
         System.out.println( ANSI_GREEN + "[OK] "+ANSI_RESET+" Servidor Multicast Iniciado.");
         try{
             group = InetAddress.getByName(MCAST_ADDR);
-            MulticastSocket socket = new MulticastSocket(MCAST_PORT); //socket tipo multicast
-            socket.joinGroup(group);//se une al grupo
             while(true){
                 System.out.println( ANSI_YELLOW + "[SENDING] "+ANSI_RESET+" Enviando mensaje...");
                 send("HereIAm");
