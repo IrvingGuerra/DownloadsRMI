@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package downloadsrmi;
+package downloadsrmi.servidores;
 
-import static downloadsrmi.Servidores.ANSI_BLUE;
-import static downloadsrmi.Servidores.ANSI_GREEN;
-import static downloadsrmi.Servidores.ANSI_RESET;
-import static downloadsrmi.Servidores.ANSI_YELLOW;
+import static downloadsrmi.servidores.initServidores.ANSI_BLUE;
+import static downloadsrmi.servidores.initServidores.ANSI_GREEN;
+import static downloadsrmi.servidores.initServidores.ANSI_RESET;
+import static downloadsrmi.servidores.initServidores.ANSI_YELLOW;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;

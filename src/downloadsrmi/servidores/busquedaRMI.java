@@ -1,4 +1,4 @@
-package downloadsrmi;
+package downloadsrmi.servidores;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

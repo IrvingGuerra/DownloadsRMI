@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package downloadsrmi;
-import static downloadsrmi.DownloadsRMI.ANSI_YELLOW;
-import static downloadsrmi.Servidores.ANSI_GREEN;
-import static downloadsrmi.Servidores.ANSI_RED;
-import static downloadsrmi.Servidores.ANSI_RESET;
+package downloadsrmi.servidores;
+import static downloadsrmi.softwareDownload.ANSI_YELLOW;
+import static downloadsrmi.servidores.initServidores.ANSI_GREEN;
+import static downloadsrmi.servidores.initServidores.ANSI_RED;
+import static downloadsrmi.servidores.initServidores.ANSI_RESET;
+
 import java.io.File;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package downloadsrmi;
+package downloadsrmi.clientes;
 
-import static downloadsrmi.DownloadsRMI.ANSI_BLUE;
-import static downloadsrmi.DownloadsRMI.ANSI_GREEN;
-import static downloadsrmi.DownloadsRMI.ANSI_RESET;
+import static downloadsrmi.softwareDownload.ANSI_BLUE;
+import static downloadsrmi.softwareDownload.ANSI_GREEN;
+import static downloadsrmi.softwareDownload.ANSI_RESET;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -25,14 +25,14 @@ public class ClienteRMI extends Thread{
         System.out.println( ANSI_GREEN + "[ INIT ] "+ANSI_RESET+" Cliente RMI Iniciado");
     }
 
-    void searchFile(String text) {
+    public void searchFile(String text) {
         try {
 	    Registry registry = LocateRegistry.getRegistry("localhost",1099);
 	    busquedaRMI stub = (busquedaRMI) registry.lookup("Busqueda");
 	    searchResult response = stub.buscar(text);
-            System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda name: "+response.filename);
-            System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda path: "+response.path);
-            System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda md5: "+response.md5);
+            System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda name: "+response.getFilename());
+            System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda path: "+response.getPath());
+            System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda md5: "+response.getMd5());
 	} catch (Exception e) {
 	    System.err.println("Client exception: " + e.toString());
 	    e.printStackTrace();

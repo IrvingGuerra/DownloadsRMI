@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package downloadsrmi;
+package downloadsrmi.servidores;
 
 /**
  *
  * @author irvingguerra
  */
-public class Servidores extends Thread{
+public class initServidores extends Thread{
     
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -24,7 +24,7 @@ public class Servidores extends Thread{
     ServidorMulticast ServidorMulticast = new ServidorMulticast();
     ServidorRMI ServidorRMI = new ServidorRMI();
     
-    public Servidores() {
+    public initServidores() {
         System.out.println( ANSI_GREEN + "[ INIT ] "+ANSI_RESET+" Servidores iniciados");
         System.out.println( ANSI_YELLOW + "[ INFO ] "+ANSI_RESET+" Iniciando Servidor Multicast");
         ServidorMulticast.start();
@@ -33,7 +33,7 @@ public class Servidores extends Thread{
     
     public static void main(String[] args) {
         try{
-	    Servidores servidores = new Servidores();
+	    initServidores servidores = new initServidores();
 	    servidores.start();
 	}catch(Exception e){
             e.printStackTrace();
