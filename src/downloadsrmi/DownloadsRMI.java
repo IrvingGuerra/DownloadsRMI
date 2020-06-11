@@ -7,6 +7,7 @@ package downloadsrmi;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,6 +28,7 @@ public class DownloadsRMI extends javax.swing.JFrame {
     database db = new database();
     ClienteMulticast ClienteMulticast = new ClienteMulticast(db);
     ClienteMulticastCheckList ClienteMulticastCheck = new ClienteMulticastCheckList(db);
+    ClienteRMI ClienteRMI = new ClienteRMI();
 
     /**
      * Creates new form Client
@@ -37,6 +39,7 @@ public class DownloadsRMI extends javax.swing.JFrame {
         System.out.println( ANSI_YELLOW + "[ INFO ] "+ANSI_RESET+" Iniciando Cliente Multicast");
         ClienteMulticast.start();
         ClienteMulticastCheck.start();
+        ClienteRMI.start();
     }
 
     /**
@@ -49,6 +52,8 @@ public class DownloadsRMI extends javax.swing.JFrame {
     private void initComponents() {
 
         btnExit = new javax.swing.JLabel();
+        inputFileName = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         lblWallpaper = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,6 +68,15 @@ public class DownloadsRMI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 30, 30));
+        getContentPane().add(inputFileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 330, 40));
+
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 110, 40));
 
         lblWallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/wall.png"))); // NOI18N
         lblWallpaper.setText("jLabel1");
@@ -74,6 +88,17 @@ public class DownloadsRMI extends javax.swing.JFrame {
     private void btnExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMouseClicked
         System.exit(0);
     }//GEN-LAST:event_btnExitMouseClicked
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+       //Verificar que en la db haya al menos 1 servidor
+       List<serverData> ServersList = db.getServersList();
+       if(ServersList.size() != 0){
+           ClienteRMI.searchFile(inputFileName.getText());
+       }else{
+           JOptionPane.showMessageDialog(null, "No hay ningun servidor disponible", "Busqueda", JOptionPane.WARNING_MESSAGE);
+       }
+      
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,7 +137,9 @@ public class DownloadsRMI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel btnExit;
+    private javax.swing.JTextField inputFileName;
     private javax.swing.JLabel lblWallpaper;
     // End of variables declaration//GEN-END:variables
 }

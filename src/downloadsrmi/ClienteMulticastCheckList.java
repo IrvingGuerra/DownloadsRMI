@@ -7,6 +7,7 @@ package downloadsrmi;
 
 import static downloadsrmi.DownloadsRMI.ANSI_BLUE;
 import static downloadsrmi.DownloadsRMI.ANSI_GREEN;
+import static downloadsrmi.DownloadsRMI.ANSI_RED;
 import static downloadsrmi.DownloadsRMI.ANSI_RESET;
 import static downloadsrmi.DownloadsRMI.ANSI_YELLOW;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class ClienteMulticastCheckList extends Thread{
                         if(ServersList.get(i).getTemp() == 0){
                             //Cuando llega a 0 el servidor no se reporto, asi que lo eliminamos
                             ServersList.remove(i);
+                            System.out.println( ANSI_RED + "[ DELETED ] "+ANSI_RESET+" Servidor inactivo, se eliminó de la lista");
                         }else{
                             ServersList.get(i).setTemp(ServersList.get(i).getTemp()-1);
                         }

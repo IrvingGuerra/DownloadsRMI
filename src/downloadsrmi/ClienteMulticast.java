@@ -56,9 +56,9 @@ public class ClienteMulticast extends Thread{
                 byte [] data = recv.getData();
                 mensaje = new String(data);
                 mensaje = mensaje.trim();
-                System.out.println( ANSI_PURPLE + "[ MSN ] "+ANSI_RESET+" Mensaje recibido: " + mensaje);
-                System.out.println( ANSI_PURPLE + "[ MSN ] "+ ANSI_YELLOW + "[ INFO ] "+ANSI_RESET+" From Address: " + recv.getAddress());
-                System.out.println( ANSI_PURPLE + "[ MSN ] "+ ANSI_YELLOW + "[ INFO ] "+ANSI_RESET+" From Port: " + recv.getPort());
+                //System.out.println( ANSI_PURPLE + "[ MSN ] "+ANSI_RESET+" Mensaje recibido: " + mensaje);
+                //System.out.println( ANSI_PURPLE + "[ MSN ] "+ ANSI_YELLOW + "[ INFO ] "+ANSI_RESET+" From Address: " + recv.getAddress());
+                //System.out.println( ANSI_PURPLE + "[ MSN ] "+ ANSI_YELLOW + "[ INFO ] "+ANSI_RESET+" From Port: " + recv.getPort());
                 //Necesitamos verificar si ya tenemos esta servidor guardado en la lista
                 //Creamos el objeto
                 serverData ActualServer = new serverData(recv.getAddress().toString(), recv.getPort(), 6);
