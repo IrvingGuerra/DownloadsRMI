@@ -5,14 +5,11 @@
  */
 package downloadsrmi.clientes;
 
-import downloadsrmi.clientes.databases.serverData;
-import downloadsrmi.clientes.databases.database;
 import static downloadsrmi.softwareDownload.ANSI_BLUE;
 import static downloadsrmi.softwareDownload.ANSI_GREEN;
 import static downloadsrmi.softwareDownload.ANSI_RED;
 import static downloadsrmi.softwareDownload.ANSI_RESET;
 import static downloadsrmi.softwareDownload.ANSI_YELLOW;
-import java.util.ArrayList;
 import java.util.List;
 
 

@@ -5,8 +5,8 @@
  */
 package downloadsrmi;
 
-import downloadsrmi.clientes.databases.serverData;
-import downloadsrmi.clientes.databases.database;
+import downloadsrmi.clientes.serverData;
+import downloadsrmi.clientes.database;
 import downloadsrmi.clientes.ClienteRMI;
 import downloadsrmi.clientes.ClienteMulticastCheckList;
 import downloadsrmi.clientes.ClienteMulticast;

@@ -5,18 +5,16 @@
  */
 package downloadsrmi.clientes;
 
-import downloadsrmi.clientes.databases.serverData;
-import downloadsrmi.clientes.databases.database;
 import static downloadsrmi.softwareDownload.ANSI_BLUE;
 import static downloadsrmi.softwareDownload.ANSI_GREEN;
-import static downloadsrmi.softwareDownload.ANSI_PURPLE;
 import static downloadsrmi.softwareDownload.ANSI_RESET;
-import static downloadsrmi.softwareDownload.ANSI_YELLOW;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +30,8 @@ public class ClienteMulticast extends Thread{
     public static final int DGRAM_BUF_LEN=1024;
     InetAddress group =null;
     private final database db;
+    
+    private List<serverData> ServersList = new ArrayList<>();
 
     public ClienteMulticast(database db){
         this.db = db;
@@ -65,13 +65,12 @@ public class ClienteMulticast extends Thread{
                 //Creamos el objeto
                 serverData ActualServer = new serverData(recv.getAddress().toString(), recv.getPort(), 6);
                 //Lo agregamos a la lista siempre y cuando no exista
-                List<serverData> ServersList = db.getServersList();
+                ServersList = db.getServersList();
                 int pos = containsList(ServersList, ActualServer);
                 if ( pos == -1){
                     db.addServer(ActualServer);
                     System.out.println( ANSI_GREEN + "[ OK ] "+ANSI_RESET+" Server añadido a la lista");
                 }else{
-                    //Cuando recibamos un mensaje de el mismo, solo sera necesario actualizarlo
                     ServersList.get(pos).setTemp(6);
                     db.setServersList(ServersList);
                 }

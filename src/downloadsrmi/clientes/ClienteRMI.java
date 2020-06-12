@@ -29,7 +29,7 @@ public class ClienteRMI extends Thread{
         try {
 	    Registry registry = LocateRegistry.getRegistry("localhost",1099);
 	    busquedaRMI stub = (busquedaRMI) registry.lookup("Busqueda");
-	    searchResult response = stub.buscar(text);
+            searchResult response = stub.buscar(text);
             System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda name: "+response.getFilename());
             System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda path: "+response.getPath());
             System.out.println( ANSI_GREEN + "[ RESPONSE ] "+ANSI_RESET+" Busqueda md5: "+response.getMd5());
